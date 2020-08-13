@@ -34,6 +34,7 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 end
 
 failed_nodes = JSON.parse(response.body)
+puts failed_nodes
 failed_nodes.each do |node|
   server = node['source_fqdn']
   org = node['organization']
@@ -56,6 +57,7 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 end
 
 missing_nodes = JSON.parse(response.body)
+puts missing_nodes
 missing_nodes.each do |node|
   server = node['source_fqdn']
   org = node['organization']
@@ -78,6 +80,7 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 end
 
 successful_nodes = JSON.parse(response.body)
+puts successful_nodes
 successful_nodes.each do |node|
   server = node['source_fqdn']
   org = node['organization']
